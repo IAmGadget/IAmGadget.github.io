@@ -1,6 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	font-family: calibri;
 }
 body {
 	background: rgba(86, 101, 115);
@@ -10,6 +11,7 @@ nav {
 	background: rgba(39, 55, 70);
 	display: flex;
 	align-items: center;
+	font-size: 28px;
 	border-bottom: solid 2px rgba(171, 178, 185);
 }
 nav img {
@@ -17,6 +19,10 @@ nav img {
 }
 nav a {
 	margin: 0 10px;
+}
+.nav-link:hover {
+	color: rgba(171, 178, 185);
+	font-size: 26px;
 }
 a {
 	text-decoration: none;
@@ -27,6 +33,7 @@ a {
 	width: 100%;
 	margin: 20px auto;
 	text-align: center;
+	color: white;
 }
 .home img {
 	border-radius: 100%;
