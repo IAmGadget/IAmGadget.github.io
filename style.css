@@ -10,8 +10,10 @@ nav {
 	background: rgba(39, 55, 70);
 	display: flex;
 	align-items: center;
-	padding: 5px;
 	border-bottom: solid 2px rgba(171, 178, 185);
+}
+nav img {
+	margin-left: 10px;
 }
 nav a {
 	margin: 10px;
