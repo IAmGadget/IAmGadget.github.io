@@ -26,6 +26,7 @@ a {
 .home {
 	width: 100%;
 	margin: 20px auto;
+	text-align: center;
 }
 .home img {
 	border-radius: 100%;
