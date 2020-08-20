@@ -48,10 +48,30 @@ a {
 	position: absolute;
 	bottom: 0;
 }
+#home-page p {
+	margin-left: 10px;
+}
 
 
 /*PORTFOLIO PAGE*/
 
 .portfolio {
 	width: 80%;
+	text-align: center;
+}
+.portfolio legend {
+	color: white;
+	font-weight: bold;
+	font-size: 32px;
+}
+.portfolio a {
+	color: white;
+	font-size: 24px;
+}
+.portfolio img {
+	height: 200px;
+	border: solid 2px grey;
+}
+.portfolio img:hover {
+	height: 500px;
 }
