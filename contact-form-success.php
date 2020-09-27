@@ -1,10 +1,7 @@
 <?php
 
-$_name = $_REQUEST['Name'];
-$_email = $_REQUEST['Email'];
-$_message = $_REQUEST['Message'];
 
-$echo 'Name: ' . $name . '<br>Message: ' . $message;
+echo ;$_POST['name'];
 
 //=======================================================================================================
 // Create new webhook in your Discord channel settings and copy&paste URL
