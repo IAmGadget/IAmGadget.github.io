@@ -84,7 +84,23 @@ nav a {
 	margin-left: 10px;
 }
 
-
+.contact-form {
+	position: absolute;
+	bottom: 30%;
+	left: 1%;
+	width: 15%;
+	padding: 1%;
+	text-align: center;
+	border: solid 0.01vw white;
+	border-radius: 10%;
+	background-color: rgba(0,0,0,0.4)
+	color: white;
+}
+.contact-form-button {
+	background-color: grey;
+	color: white;
+	padding: 1%;
+}
 /*PORTFOLIO PAGE*/
 
 .portfolio {

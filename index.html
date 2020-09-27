@@ -13,6 +13,11 @@
 	<link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
+	<style>
+		* {
+			overflow-y: hidden;
+		}
+	</style>
 	<header>
 		<svg height="600" width="100%" id="background" viewbox="100 10 1000 500">
 			<line x1="0" y1="0" x2="1500" y2="0" style="stroke:rgb(0,0,0);stroke-width:125"/> <!--Top banner -->
@@ -30,6 +35,18 @@
 		<hr width="160px" style="margin: 10px auto;">
 		<h2>About me</h2>
 		<p>I am a current freelancer. My current goal is to purchase a gaming computer. But I will not stop there. My next goal will be to start up a business of developers and offer tuitions to those who cannot afford online courses or are struggling at school and need that little extra help.</p>
+	</div>
+
+	<div class="contact-form">
+		<form action="mailto:info@iamgadget.tk">
+			<lable>Name</lable><br>
+			<input type="input" name="Name"><br>
+			<label>Email</label><br>
+			<input type="email" name="Email" required><br>
+			<label>Phone number</label><br>
+			<input type="number" name="PhoneNumber"><br>
+			<input type="submit" value="Contact me" style="margin-top: 5px" class="contact-form-button">
+		</form>
 	</div>
 	<footer id="home-page">
 		<p>Created by: <span style="color: white;">Gadget#0975</span></p>
