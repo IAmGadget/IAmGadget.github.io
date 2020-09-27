@@ -1,76 +1,108 @@
 <?php
-if (isset($_POST['Email'])) {
+//=======================================================================================================
+// Create new webhook in your Discord channel settings and copy&paste URL
+//=======================================================================================================
 
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "you@yourdomain.com";
-    $email_subject = "New form submissions";
+$webhookurl = "YOUR_WEBHOOK_URL";
 
-    function problem($error)
-    {
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br><br>";
-        echo $error . "<br><br>";
-        echo "Please go back and fix these errors.<br><br>";
-        die();
-    }
+//=======================================================================================================
+// Compose message. You can use Markdown
+// Message Formatting -- https://discordapp.com/developers/docs/reference#message-formatting
+//========================================================================================================
 
-    // validation expected data exists
-    if (
-        !isset($_POST['Name']) ||
-        !isset($_POST['Email']) ||
-        !isset($_POST['Message'])
-    ) {
-        problem('We are sorry, but there appears to be a problem with the form you submitted.');
-    }
+$timestamp = date("c", strtotime("now"));
 
-    $name = $_POST['Name']; // required
-    $email = $_POST['Email']; // required
-    $message = $_POST['Message']; // required
+$json_data = json_encode([
+    // Message
+    "content" => "Hello World! This is message line ;) And here is the mention, use userID <@12341234123412341>",
+    
+    // Username
+    "username" => "krasin.space",
 
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    // Avatar URL.
+    // Uncoment to replace image set in webhook
+    //"avatar_url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=512",
 
-    if (!preg_match($email_exp, $email)) {
-        $error_message .= 'The Email address you entered does not appear to be valid.<br>';
-    }
+    // Text-to-speech
+    "tts" => false,
 
-    $string_exp = "/^[A-Za-z .'-]+$/";
+    // File upload
+    // "file" => "",
 
-    if (!preg_match($string_exp, $name)) {
-        $error_message .= 'The Name you entered does not appear to be valid.<br>';
-    }
+    // Embeds Array
+    "embeds" => [
+        [
+            // Embed Title
+            "title" => "PHP - Send message to Discord (embeds) via Webhook",
 
-    if (strlen($message) < 2) {
-        $error_message .= 'The Message you entered do not appear to be valid.<br>';
-    }
+            // Embed Type
+            "type" => "rich",
 
-    if (strlen($error_message) > 0) {
-        problem($error_message);
-    }
+            // Embed Description
+            "description" => "Description will be here, someday, you can mention users here also by calling userID <@12341234123412341>",
 
-    $email_message = "Form details below.\n\n";
+            // URL of title link
+            "url" => "https://gist.github.com/Mo45/cb0813cb8a6ebcd6524f6a36d4f8862c",
 
-    function clean_string($string)
-    {
-        $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-        return str_replace($bad, "", $string);
-    }
+            // Timestamp of embed must be formatted as ISO8601
+            "timestamp" => $timestamp,
 
-    $email_message .= "Name: " . clean_string($name) . "\n";
-    $email_message .= "Email: " . clean_string($email) . "\n";
-    $email_message .= "Message: " . clean_string($message) . "\n";
+            // Embed left border color in HEX
+            "color" => hexdec( "3366ff" ),
 
-    // create email headers
-    $headers = 'From: ' . $email . "\r\n" .
-        'Reply-To: ' . $email . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    @mail($email_to, $email_subject, $email_message, $headers);
-?>
+            // Footer
+            "footer" => [
+                "text" => "GitHub.com/Mo45",
+                "icon_url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=375"
+            ],
 
-    <!-- include your success message below -->
+            // Image to send
+            "image" => [
+                "url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=600"
+            ],
 
-    Thank you for contacting us. We will be in touch with you very soon.
+            // Thumbnail
+            //"thumbnail" => [
+            //    "url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=400"
+            //],
 
-<?php
-}
-?>
+            // Author
+            "author" => [
+                "name" => "krasin.space",
+                "url" => "https://krasin.space/"
+            ],
+
+            // Additional Fields array
+            "fields" => [
+                // Field 1
+                [
+                    "name" => "Field #1 Name",
+                    "value" => "Field #1 Value",
+                    "inline" => false
+                ],
+                // Field 2
+                [
+                    "name" => "Field #2 Name",
+                    "value" => "Field #2 Value",
+                    "inline" => true
+                ]
+                // Etc..
+            ]
+        ]
+    ]
+
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+
+
+$ch = curl_init( $webhookurl );
+curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+curl_setopt( $ch, CURLOPT_POST, 1);
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $json_data);
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_HEADER, 0);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+
+$response = curl_exec( $ch );
+// If you need to debug, or find out why you can't send message uncomment line below, and execute script.
+// echo $response;
+curl_close( $ch );
