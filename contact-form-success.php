@@ -1,7 +1,7 @@
 <?php
 
 
-echo ;$_POST['name'];
+echo $_POST['name'];
 
 //=======================================================================================================
 // Create new webhook in your Discord channel settings and copy&paste URL
