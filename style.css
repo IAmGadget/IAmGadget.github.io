@@ -16,7 +16,7 @@ svg {
 	height: 100%;
 	position: absolute;
 	width: 100%;
-	-webkit-animation: bgcolor 50s infinite;
+	-webkit-animation: bgcolor 30s infinite;
 	animation: bgcolor 20s infinite;		
 	position: absolute;
 	-webkit-animation-direction: alternate;
