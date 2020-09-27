@@ -18,7 +18,7 @@ $timestamp = date("c", strtotime("now"));
 
 $json_data = json_encode([
     // Message
-    "content" => "Hello World! This is message line ;) And here is the mention, use userID <@12341234123412341>",
+    // "content" => "Hello World! This is message line ;) And here is the mention, use userID <@12341234123412341>",
     
     // Username
     "username" => "Website",
@@ -43,7 +43,7 @@ $json_data = json_encode([
             "type" => "rich",
 
             // Embed Description
-            "description" => 'Name: ' . $_POST['name'] . '\r\nMessage\r\n' . $_POST['message'],
+            "description" => "Name: " . $_POST['name'] . "\nMessage\n" . $_POST['message'],
 
             // URL of title link
             "url" => "https://iamgadget.tk",
