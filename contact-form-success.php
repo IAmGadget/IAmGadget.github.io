@@ -1,4 +1,11 @@
 <?php
+
+$_name = $_REQUEST['Name'];
+$_email = $_REQUEST['Email'];
+$_message = $_REQUEST['Message'];
+
+$echo 'Name: ' . $name . '<br>Message: ' . $message;
+
 //=======================================================================================================
 // Create new webhook in your Discord channel settings and copy&paste URL
 //=======================================================================================================
@@ -17,7 +24,7 @@ $json_data = json_encode([
     "content" => "Hello World! This is message line ;) And here is the mention, use userID <@12341234123412341>",
     
     // Username
-    "username" => "krasin.space",
+    "username" => "Website",
 
     // Avatar URL.
     // Uncoment to replace image set in webhook
@@ -33,16 +40,16 @@ $json_data = json_encode([
     "embeds" => [
         [
             // Embed Title
-            "title" => "PHP - Send message to Discord (embeds) via Webhook",
+            "title" => "Form information",
 
             // Embed Type
             "type" => "rich",
 
             // Embed Description
-            "description" => "Description will be here, someday, you can mention users here also by calling userID <@12341234123412341>",
+            "description" => "A user has sent a contact form!",
 
             // URL of title link
-            "url" => "https://gist.github.com/Mo45/cb0813cb8a6ebcd6524f6a36d4f8862c",
+            "url" => "https://iamgadget.tk",
 
             // Timestamp of embed must be formatted as ISO8601
             "timestamp" => $timestamp,
@@ -53,12 +60,12 @@ $json_data = json_encode([
             // Footer
             "footer" => [
                 "text" => "GitHub.com/Mo45",
-                "icon_url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=375"
+                "icon_url" => "https://iamgadget.tk/kittens.png"
             ],
 
             // Image to send
             "image" => [
-                "url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=600"
+                "url" => ""
             ],
 
             // Thumbnail
@@ -68,25 +75,18 @@ $json_data = json_encode([
 
             // Author
             "author" => [
-                "name" => "krasin.space",
-                "url" => "https://krasin.space/"
+                "name" => "Gadget",
+                "url" => "https://iamgadget.tk"
             ],
 
             // Additional Fields array
             "fields" => [
                 // Field 1
                 [
-                    "name" => "Field #1 Name",
-                    "value" => "Field #1 Value",
+                    "name" => $email,
+                    "value" => $message,
                     "inline" => false
-                ],
-                // Field 2
-                [
-                    "name" => "Field #2 Name",
-                    "value" => "Field #2 Value",
-                    "inline" => true
-                ]
-                // Etc..
+                ]//,
             ]
         ]
     ]
@@ -106,3 +106,4 @@ $response = curl_exec( $ch );
 // If you need to debug, or find out why you can't send message uncomment line below, and execute script.
 echo $response;
 curl_close( $ch );
+
