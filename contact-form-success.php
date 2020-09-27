@@ -56,7 +56,7 @@ $json_data = json_encode([
 
             // Footer
             "footer" => [
-                "text" => "GitHub.com/Mo45",
+                "text" => $_POST['email'],
                 "icon_url" => "https://iamgadget.tk/kittens.png"
             ],
 
@@ -80,8 +80,8 @@ $json_data = json_encode([
             "fields" => [
                 // Field 1
                 [
-                    "name" => $email,
-                    "value" => $message,
+                    "name" => $_POST['name'],
+                    "value" => $_POST['message'],
                     "inline" => false
                 ]//,
             ]
