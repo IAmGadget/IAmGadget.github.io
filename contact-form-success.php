@@ -43,7 +43,7 @@ $json_data = json_encode([
             "type" => "rich",
 
             // Embed Description
-            "description" => "Name: " . $_POST['name'] . "\nMessage\n" . $_POST['message'],
+            "description" => "**Name**: " . $_POST['name'] . "\n**Message**\n" . $_POST['message'],
 
             // URL of title link
             "url" => "https://iamgadget.tk",
