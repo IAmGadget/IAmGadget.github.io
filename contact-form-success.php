@@ -43,7 +43,7 @@ $json_data = json_encode([
             "type" => "rich",
 
             // Embed Description
-            "description" => "A user has sent a contact form!",
+            "description" => 'Name: ' . $_POST['name'] . '\nMessage\n' . $_POST['message'],
 
             // URL of title link
             "url" => "https://iamgadget.tk",
@@ -77,14 +77,14 @@ $json_data = json_encode([
             ],
 
             // Additional Fields array
-            "fields" => [
-                // Field 1
-                [
-                    "name" => $_POST['name'],
-                    "value" => $_POST['message'],
-                    "inline" => false
-                ]//,
-            ]
+            // "fields" => [
+            //     // Field 1
+            //     [
+            //         "name" => $_POST['name'],
+            //         "value" => $_POST['message'],
+            //         "inline" => false
+            //     ]//,
+            // ]
         ]
     ]
 
