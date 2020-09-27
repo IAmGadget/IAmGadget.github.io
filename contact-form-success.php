@@ -3,7 +3,7 @@
 // Create new webhook in your Discord channel settings and copy&paste URL
 //=======================================================================================================
 
-$webhookurl = "YOUR_WEBHOOK_URL";
+$webhookurl = "https://discord.com/api/webhooks/759837924077469787/unDo-uiO-AkFLDZdGHeM-fP65g5gSBe1Jq9FN9PvnuR7aNkFTQUR0VOb_MGMBfoeeDE-";
 
 //=======================================================================================================
 // Compose message. You can use Markdown
@@ -104,5 +104,5 @@ curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
 $response = curl_exec( $ch );
 // If you need to debug, or find out why you can't send message uncomment line below, and execute script.
-// echo $response;
+echo $response;
 curl_close( $ch );
